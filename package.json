@@ -21,10 +21,12 @@
         "debug": "^3.1.0"
     },
     "devDependencies": {
-        "@2dfire/eslint-config-2dfire-base": "^1.0.13",
+        "@2dfire/eslint-config-2dfire-base": "^1.0.14",
         "babel-cli": "^6.26.0",
         "babel-core": "^6.26.0",
         "babel-preset-env": "^1.6.1",
-        "eslint": "^4.3.0"
+        "eslint": "^4.3.0",
+        "eslint-plugin-html": "^3.2.2",
+        "eslint-plugin-import": "^2.8.0"
     }
 }
