@@ -7,6 +7,7 @@
         "lint": "eslint src",
         "build": "babel src -d .",
         "dev": "babel src -d . -w",
+        "demo": "cd demo && webpack-dev-server --config webpack.config.js --port 8848 --watch --hot --open-page index.html",
         "push": "npm run lint && npm run build && npm publish --registry http://10.1.6.28",
         "del": "npm unpublish --force --registry http://10.1.6.28",
         "repush": "npm run del && npm run push",
@@ -22,9 +23,12 @@
         "@2dfire/eslint-config-2dfire-base": "^1.0.14",
         "babel-cli": "^6.26.0",
         "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
         "babel-preset-env": "^1.6.1",
         "eslint": "^4.3.0",
         "eslint-plugin-html": "^3.2.2",
-        "eslint-plugin-import": "^2.8.0"
+        "eslint-plugin-import": "^2.8.0",
+        "webpack": "^3.8.1",
+        "webpack-dev-server": "^2.9.3"
     }
 }
