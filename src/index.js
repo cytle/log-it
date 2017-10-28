@@ -28,7 +28,7 @@ let logHandler = isChrome
  * 设置logger handler
  * @param {Function} handler log handler
  */
-export function setLogHandler(handler) {
+function setLogHandler(handler) {
     logHandler = handler;
 }
 
@@ -53,3 +53,7 @@ export default function debug(path) {
 
     return logger;
 }
+
+debug.isChrome = isChrome;
+debug.version = version;
+debug.setLogHandler = setLogHandler;
