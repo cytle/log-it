@@ -4,8 +4,8 @@
     "description": "debug 日志",
     "main": "index.js",
     "scripts": {
-        "lint": "eslint src/index.js",
-        "build": "babel src/index.js -o index.js",
+        "lint": "eslint src",
+        "build": "babel src/* -o ./",
         "push": "npm run lint && npm run build && npm publish --registry http://10.1.6.28",
         "del": "npm unpublish --force --registry http://10.1.6.28",
         "repush": "npm run del && npm run push",
@@ -17,9 +17,6 @@
     },
     "author": "炒饭<chaofan@2dfire.com>",
     "license": "ISC",
-    "dependencies": {
-        "debug": "^3.1.0"
-    },
     "devDependencies": {
         "@2dfire/eslint-config-2dfire-base": "^1.0.14",
         "babel-cli": "^6.26.0",
