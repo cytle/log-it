@@ -1,42 +1,31 @@
-const logStyles = {
-    log: {
-        path: 'background: rgb(75, 158, 100); padding:5px 0; color: #030307;',
-        message: 'color: rgb(75, 158, 100); background: #030307; padding:5px 0;',
-    },
+const levelStyles = {
+    info: ['green'],
+    warn: ['orange'],
+    error: ['red'],
 };
 
-const randomStyles = {};
+const messageBlockStyles = {};
 
-function randomStylesByPath(path) {
-    if (!(path in randomStyles)) {
-        randomStyles[path] = {
-            path: 'padding:5px 0; color: #990;',
-            message: 'color: rgb(75, 158, 100);',
-        };
+function randomMessageBlockStylesByPath(path) {
+    if (!(path in messageBlockStyles)) {
+        messageBlockStyles[path] = styleBlock(['#990']);
     }
-    return randomStyles[path];
+    return messageBlockStyles[path];
 }
 
+function styleBlock([fontColor, background]) {
+    return background
+        ? `color: ${fontColor}; background: ${background}`
+        : `color: ${fontColor}`;
+}
 export default function chromeLogHandler(path, level, ...args) {
-    const styles = level in logStyles
-        ? logStyles[level]
-        : randomStylesByPath(path);
+    const blocks = [];
+    if (level in levelStyles) {
+        blocks.push(styleBlock(levelStyles[level]), `[${level}] `);
+    }
+
+    blocks.push(randomMessageBlockStylesByPath(path), path);
 
     /* eslint no-console: 'off' */
-    if (args.length === 1 && typeof args[0] === 'string') {
-        console.log(
-            '%c %s %c %s',
-            styles.path,
-            path,
-            styles.message,
-            args[0],
-        );
-    } else {
-        console.log(
-            '%c %s',
-            styles.path,
-            path,
-            ...args,
-        );
-    }
+    console.log('%c%s'.repeat(blocks.length / 2), ...blocks, ...args);
 }
