@@ -3,7 +3,6 @@ import createStorageLogHandler from '../src/createStorageLogHandler';
 import chromeLogHandler from '../src/chromeLogHandler';
 import normalLogHandler from '../src/normalLogHandler';
 
-
 const storageLogHandler = createStorageLogHandler({
     set: (key, payload) => localStorage.setItem(key, JSON.stringify(payload)),
     get: key => localStorage.getItem(key),
