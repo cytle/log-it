@@ -5,22 +5,22 @@ const logStyles = {
     },
 };
 
-const colors = {};
+const randomStyles = {};
 
-function randomStyleByPath(path) {
-    if (!(path in colors)) {
-        colors[path] = {
+function randomStylesByPath(path) {
+    if (!(path in randomStyles)) {
+        randomStyles[path] = {
             path: 'padding:5px 0; color: #990;',
             message: 'color: rgb(75, 158, 100);',
         };
     }
-    return colors[path];
+    return randomStyles[path];
 }
 
 export default function chromeLogHandler(path, level, ...args) {
     const styles = level in logStyles
         ? logStyles[level]
-        : randomStyleByPath(path);
+        : randomStylesByPath(path);
 
     /* eslint no-console: 'off' */
     if (args.length === 1 && typeof args[0] === 'string') {
