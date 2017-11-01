@@ -13,8 +13,9 @@ debug.setLogHandler((...args) => {
     logHandler(...args);
     storageLogHandler(...args);
 });
+
 for (let i = 0; i < 3; i++) {
-    const logger = debug(`demo/index${i}`);
+    const logger = debug(`demo/index/${i}`);
 
     const levels = ['log', 'info', 'warn', 'error'];
     const messages = [
@@ -22,7 +23,6 @@ for (let i = 0; i < 3; i++) {
         { message: 'object message' },
         ['array message'],
         new Error('error message'),
-        logger,
     ];
 
     levels.forEach(level => messages.forEach(message => logger[level](message)));
