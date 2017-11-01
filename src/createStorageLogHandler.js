@@ -18,6 +18,7 @@ export default function createStorageLogHandler(storage, options = {}) {
     } catch (e) {
         logs = [];
         setTimeout(() => {
+            /* eslint no-console: 'off' */
             console.error(e);
         }, 0);
     }
