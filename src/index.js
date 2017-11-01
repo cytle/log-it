@@ -5,7 +5,7 @@ const isChrome = typeof window !== 'undefined' &&
     window.navigator &&
     window.navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
 
-const version = 'v1.0.0';
+const version = 'v1.0.1';
 
 if (isChrome) {
     /* eslint no-console: 'off' */
@@ -37,6 +37,12 @@ const createLogger = (path, level) =>
 
 const levels = ['log', 'info', 'warn', 'error'];
 
+
+export {
+    normalLogHandler,
+    chromeLogHandler,
+};
+
 export default function debug(path) {
     const logger = createLogger(path, 'log');
 
@@ -53,6 +59,7 @@ export default function debug(path) {
 
     return logger;
 }
+
 
 debug.isChrome = isChrome;
 debug.version = version;
