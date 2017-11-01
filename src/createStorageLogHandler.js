@@ -13,7 +13,14 @@ export default function createStorageLogHandler(storage, options = {}) {
         MAX_LENGTH = options.MAX_LENGTH;
     }
 
-    logs = storage.get(storageKey) || [];
+    try {
+        logs = storage.get(storageKey) || [];
+    } catch (e) {
+        logs = [];
+        setTimeout(() => {
+            console.error(e);
+        }, 0);
+    }
 
     return function storageLogHandler(path, level, ...args) {
         const time = +new Date();
