@@ -1,7 +1,7 @@
 {
-    "name": "@2dfire/debug",
+    "name": "@2dfire/log-it",
     "version": "1.0.1",
-    "description": "debug 日志",
+    "description": "记录日志",
     "main": "index.js",
     "scripts": {
         "lint": "eslint src",
@@ -15,7 +15,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git@git.2dfire-inc.com:chaofan/debug.git"
+        "url": "git@git.2dfire-inc.com:chaofan/log-it.git"
     },
     "author": "炒饭<chaofan@2dfire.com>",
     "license": "ISC",

@@ -1,13 +1,13 @@
-# debug
+# log-it
 
-debug 日志
+记录日志
 
 ![屏幕快照](./images/屏幕快照.png)
 
 ## Usage
 
 ```js
-import debug from '../src';
+import logIt from '../src';
 import createStorageLogHandler from '../src/createStorageLogHandler';
 import chromeLogHandler from '../src/chromeLogHandler';
 import normalLogHandler from '../src/normalLogHandler';
@@ -16,15 +16,15 @@ const storageLogHandler = createStorageLogHandler({
     set: (key, payload) => localStorage.setItem(key, JSON.stringify(payload)),
     get: key => JSON.parse(localStorage.getItem(key) || '[]'),
 });
-const logHandler = debug.isChrome ? chromeLogHandler : normalLogHandler;
+const logHandler = logIt.isChrome ? chromeLogHandler : normalLogHandler;
 
-debug.setLogHandler((...args) => {
+logIt.setLogHandler((...args) => {
     logHandler(...args);
     storageLogHandler(...args);
 });
 
 for (let i = 0; i < 3; i++) {
-    const logger = debug(`demo/index/${i}`);
+    const logger = logIt(`demo/index/${i}`);
 
     const levels = ['log', 'info', 'warn', 'error'];
     const messages = [

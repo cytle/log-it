@@ -10,14 +10,14 @@ const version = 'v1.0.1';
 if (isChrome) {
     /* eslint no-console: 'off' */
     console.log(
-        '\n%c   二维火  %c  〉debug.js 〉%s   \n\n',
+        '\n%c   二维火  %c  〉log-it.js 〉%s   \n\n',
         'background: rgb(75, 158, 100); padding:5px 0; color: #030307;',
         'color: rgb(75, 158, 100); background: #030307; padding:5px 0;',
         version,
     );
 } else {
     /* eslint no-console: 'off' */
-    console.log('二维火 debug.js %s', version);
+    console.log('二维火 log-it.js %s', version);
 }
 
 let logHandler = isChrome
@@ -43,7 +43,7 @@ export {
     chromeLogHandler,
 };
 
-export default function debug(path) {
+export default function logIt(path) {
     const logger = createLogger(path, 'log');
 
     for (let i = levels.length - 1; i >= 0; i--) {
@@ -61,6 +61,6 @@ export default function debug(path) {
 }
 
 
-debug.isChrome = isChrome;
-debug.version = version;
-debug.setLogHandler = setLogHandler;
+logIt.isChrome = isChrome;
+logIt.version = version;
+logIt.setLogHandler = setLogHandler;
