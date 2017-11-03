@@ -7,7 +7,7 @@
 ## Usage
 
 ```js
-import logIt from '../src';
+import logIt from 'log_it';
 import createStorageLogHandler from '../src/createStorageLogHandler';
 import chromeLogHandler from '../src/chromeLogHandler';
 import normalLogHandler from '../src/normalLogHandler';

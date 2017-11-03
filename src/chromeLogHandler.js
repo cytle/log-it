@@ -32,10 +32,8 @@ const levelStyles = {
 const namespaceStyles = {};
 
 function selectNamespaceStyles(namespace) {
-    if (!(namespace in namespaceStyles)) {
-        namespaceStyles[namespace] = getStyleByColor(selectColor(namespace));
-    }
-    return namespaceStyles[namespace];
+    return namespaceStyles[namespace] ||
+        (namespaceStyles[namespace] = getStyleByColor(selectColor(namespace)));
 }
 
 function getStyleByColor(fontColor, background) {
