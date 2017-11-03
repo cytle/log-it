@@ -5,7 +5,7 @@ const isChrome = typeof window !== 'undefined' &&
     window.navigator &&
     window.navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
 
-const version = 'v1.0.1';
+const version = 'v1.0.2';
 
 if (isChrome) {
     /* eslint no-console: 'off' */

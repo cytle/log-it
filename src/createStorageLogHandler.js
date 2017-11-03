@@ -22,13 +22,7 @@ export default function createStorageLogHandler(storage, options = {}) {
             console.error(e);
         }, 0);
     }
-
-    return function storageLogHandler(path, level, ...args) {
-        const time = +new Date();
-        // TODO 优化
-        const payload = JSON.stringify(args);
-        logs.unshift(`${time}: ${payload}`);
-
+    function storeLogs() {
         clearTimeout(timeoutIndex);
         timeoutIndex = setTimeout(() => {
             if (logs.length > MAX_LENGTH) {
@@ -36,5 +30,13 @@ export default function createStorageLogHandler(storage, options = {}) {
             }
             storage.set(storageKey, logs);
         }, 5000);
+    }
+    return function storageLogHandler(path, level, ...payload) {
+        const time = +new Date();
+        payload.unshift(time);
+
+        // TODO 优化 JSON.stringify
+        logs.unshift(payload);
+        storeLogs();
     };
 }
