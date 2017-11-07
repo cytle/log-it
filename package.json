@@ -1,5 +1,5 @@
 {
-    "name": "log_it",
+    "name": "@2dfire/log-it",
     "version": "1.0.2",
     "description": "记录日志",
     "main": "index.js",

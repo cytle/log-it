@@ -7,7 +7,7 @@
 ## Usage
 
 ```js
-import logIt from 'log_it';
+import logIt from '@2dfire/log-it';
 import createStorageLogHandler from '../src/createStorageLogHandler';
 import chromeLogHandler from '../src/chromeLogHandler';
 import normalLogHandler from '../src/normalLogHandler';
