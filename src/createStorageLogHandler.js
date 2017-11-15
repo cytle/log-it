@@ -32,8 +32,7 @@ export default function createStorageLogHandler(storage, options = {}) {
         }, 5000);
     }
     return function storageLogHandler(...payload) {
-        const time = +new Date();
-        payload.unshift(time);
+        payload.unshift(+new Date());
 
         // TODO 优化 JSON.stringify
         logs.unshift(payload);
