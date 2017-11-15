@@ -8,9 +8,9 @@
 
 ```js
 import logIt from 'log_it';
-import createStorageLogHandler from '../src/createStorageLogHandler';
-import chromeLogHandler from '../src/chromeLogHandler';
-import normalLogHandler from '../src/normalLogHandler';
+import createStorageLogHandler from 'log_it/createStorageLogHandler';
+import chromeLogHandler from 'log_it/chromeLogHandler';
+import normalLogHandler from 'log_it/normalLogHandler';
 
 const storageLogHandler = createStorageLogHandler({
     set: (key, payload) => localStorage.setItem(key, JSON.stringify(payload)),
