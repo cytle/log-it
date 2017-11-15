@@ -32,11 +32,15 @@ function setLogHandler(handler) {
     logHandler = handler;
 }
 
-const createLogger = (path, level) =>
-    (...args) => logHandler(path, level, ...args);
+const createLogger = (path, level) => (...args) => {
+    try {
+        logHandler(path, level, ...args);
+    } catch (e) {
+        console.error(e);
+    }
+};
 
 const levels = ['log', 'info', 'warn', 'error'];
-
 
 export {
     normalLogHandler,
