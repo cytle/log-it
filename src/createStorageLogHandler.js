@@ -31,7 +31,7 @@ export default function createStorageLogHandler(storage, options = {}) {
             storage.set(storageKey, logs);
         }, 5000);
     }
-    return function storageLogHandler(path, level, ...payload) {
+    return function storageLogHandler(...payload) {
         const time = +new Date();
         payload.unshift(time);
 
