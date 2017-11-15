@@ -1,6 +1,6 @@
 {
     "name": "log_it",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "记录日志",
     "main": "index.js",
     "scripts": {
