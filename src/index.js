@@ -16,7 +16,7 @@ const isChrome = (function isChrome() {
     return false;
 }());
 
-const version = 'v1.0.5';
+const version = 'v1.0.8';
 
 if (isChrome) {
     /* eslint no-console: 'off' */
