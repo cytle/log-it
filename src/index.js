@@ -1,9 +1,13 @@
 import normalLogHandler from './normalLogHandler';
 import chromeLogHandler from './chromeLogHandler';
 
-const isChrome = typeof window !== 'undefined' &&
-    window.navigator &&
-    window.navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+const isChrome = (function isChrome() {
+    const ua = typeof window !== 'undefined' && window.navigator
+        ? window.navigator.userAgent.toLowerCase()
+        : '';
+
+    return ua.indexOf('chrome') > -1 || ua.indexOf('wechatdevtools') > -1;
+}());
 
 const version = 'v1.0.5';
 
