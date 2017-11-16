@@ -8,7 +8,8 @@
         "build": "babel src -d .",
         "dev": "babel src -d . -w",
         "demo": "cd demo && webpack-dev-server --config webpack.config.js --port 8848 --watch --hot --open-page index.html",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "prepublish": "npm run build"
     },
     "repository": {
         "type": "git",
