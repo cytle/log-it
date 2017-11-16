@@ -2,11 +2,18 @@ import normalLogHandler from './normalLogHandler';
 import chromeLogHandler from './chromeLogHandler';
 
 const isChrome = (function isChrome() {
-    const ua = typeof window !== 'undefined' && window.navigator
-        ? window.navigator.userAgent.toLowerCase()
-        : '';
-
-    return ua.indexOf('chrome') > -1 || ua.indexOf('wechatdevtools') > -1;
+    try {
+        if (typeof window !== 'undefined' && window.navigator) {
+            const ua = window.navigator.userAgent.toLowerCase();
+            return ua.indexOf('chrome') > -1 || ua.indexOf('wechatdevtools') > -1;
+        }
+        if (typeof wx !== 'undefined' && wx.getSystemInfoSync) {
+            return wx.getSystemInfoSync().platform === 'devtools';
+        }
+    } catch (e) {
+        console.error(e);
+    }
+    return false;
 }());
 
 const version = 'v1.0.5';
