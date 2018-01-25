@@ -16,19 +16,19 @@ const isChrome = (function isChrome() {
     return false;
 }());
 
-const version = 'v1.0.8';
+const version = 'v1.0.9';
 
 if (isChrome) {
     /* eslint no-console: 'off' */
     console.log(
-        '\n%c   二维火  %c  〉log-it.js 〉%s   \n\n',
+        '\n%c   日志  %c  〉log-it.js 〉%s   \n\n',
         'background: rgb(75, 158, 100); padding:5px 0; color: #030307;',
         'color: rgb(75, 158, 100); background: #030307; padding:5px 0;',
         version,
     );
 } else {
     /* eslint no-console: 'off' */
-    console.log('二维火 log-it.js %s', version);
+    console.log('日志 log-it.js %s', version);
 }
 
 let logHandler = isChrome
