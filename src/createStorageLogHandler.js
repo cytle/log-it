@@ -32,10 +32,15 @@ export default function createStorageLogHandler(storage, options = {}) {
         }, 5000);
     }
     return function storageLogHandler(...payload) {
-        payload.unshift(+new Date());
+        try {
+            payload.unshift(+new Date());
 
-        // TODO 优化 JSON.stringify
-        logs.unshift(payload);
-        storeLogs();
+            // TODO 优化 JSON.stringify
+            logs.unshift(payload);
+            storeLogs();
+        } catch (error) {
+            console.error(error);
+            console.log(...payload);
+        }
     };
 }

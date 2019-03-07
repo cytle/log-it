@@ -48,6 +48,7 @@ const createLogger = (path, level) => (...args) => {
         logHandler(path, level, ...args);
     } catch (e) {
         console.error(e);
+        console.log(path, level, ...args);
     }
 };
 
